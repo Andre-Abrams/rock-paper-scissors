@@ -14,24 +14,24 @@
         }
         
         function playRound(playerSelection, computerSlection) {
-            if(playerSelection.toLowerCase() == computerSlection.toLowerCase()){
+            if(playerSelection.toUpperCase() == computerSlection.toUpperCase()){
                 return "It's a tie!";
-            } else if(playerSelection.toLowerCase() == 'rock' && computerSlection.toLowerCase() == 'paper'){
+            } else if(playerSelection.toUpperCase() == 'ROCK' && computerSlection.toUpperCase() == 'PAPER'){
                 computerScore++;
                 return "You lose this round! Paper beats Rock";
-            } else if(playerSelection.toLowerCase() == 'rock' && computerSlection.toLowerCase() == 'scissors'){
+            } else if(playerSelection.toUpperCase() == 'ROCK' && computerSlection.toUpperCase() == 'SCISSORS'){
                 playerScore++
                 return "You win this round! Rock beats Scissors";
-            } else if(playerSelection.toLowerCase() == 'paper' && computerSlection.toLowerCase() == 'scissors'){
+            } else if(playerSelection.toUpperCase() == 'PAPER' && computerSlection.toUpperCase() == 'SCISSORS'){
                 computerScore++;
                 return "You lose this round! Scissors beats Rock";
-            } else if(playerSelection.toLowerCase() == 'paper' && computerSlection.toLowerCase() == 'rock'){
+            } else if(playerSelection.toUpperCase() == 'PAPER' && computerSlection.toUpperCase() == 'ROCK'){
                 playerScore++;
                 return "You win this round! Paper beats Rock";
-            } else if(playerSelection.toLowerCase() == 'scissors' && computerSlection.toLowerCase() == 'rock'){
+            } else if(playerSelection.toUpperCase() == 'SCISSORS' && computerSlection.toUpperCase() == 'ROCK'){
                 computerScore++;
                 return "You lose this round! Rock beats Scissors";
-            } else if(playerSelection.toLowerCase() == 'scissors' && computerSlection.toLowerCase() == 'paper'){
+            } else if(playerSelection.toUpperCase() == 'SCISSORS' && computerSlection.toUpperCase() == 'PAPER'){
                 playerScore++;
                 return "You win this round! Scissors beats Paper";
             }
@@ -42,7 +42,7 @@
                 let playerSelection = prompt("Enter Rock, Paper, or Scissors:");
                 let computerSlection = computerPlay();
                 console.log(playRound(playerSelection, computerSlection));
-                console.log("The score is " + playerScore + " - " + computerScore + "!")
+                console.log(`The score is ${playerScore} - ${computerScore}!`)
             }
             if(playerScore > computerScore){
                 console.log("Congratulations! You won the game!");
