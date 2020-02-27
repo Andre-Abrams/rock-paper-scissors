@@ -17,7 +17,8 @@
         <button id="SCISSORS" class="choice"></button>
 
         <div id="scoreboard">
-            <h2 class="winner"></h2>
+            <h2 class="winner">First to 5 wins! Good Luck!</h2>
+            <button id="reset">RESET</button>
         </div>
     </div>
     <script>
@@ -33,7 +34,6 @@
             } else {
                 score.textContent =
                     `The score is ${playerScore} - ${computerScore}!`;
-                    
             }
             scoreboard.appendChild(score);
         }
@@ -45,35 +45,43 @@
                 return;
             }
             if (playerSelection == computerSelection) {
-                winner.innerText = "It's a tie!";
+                winner.textContent = "It's a tie!";
             } else if (playerSelection == 'ROCK' && computerSelection ==
                 'PAPER') {
                 computerScore++;
-                winner.innerText = "You lose this round! Paper beats Rock";
+                winner.textContent = "You lose this round! Paper beats Rock";
             } else if (playerSelection == 'ROCK' && computerSelection ==
                 'SCISSORS') {
                 playerScore++
-                winner.innerText = "You win this round! Rock beats Scissors";
+                winner.textContent = "You win this round! Rock beats Scissors";
             } else if (playerSelection == 'PAPER' && computerSelection ==
                 'SCISSORS') {
                 computerScore++;
-                winner.innerText = "You lose this round! Scissors beats Rock";
+                winner.textContent = "You lose this round! Scissors beats Rock";
             } else if (playerSelection == 'PAPER' && computerSelection ==
                 'ROCK') {
                 playerScore++;
-                winner.innerText = "You win this round! Paper beats Rock";
+                winner.textContent = "You win this round! Paper beats Rock";
             } else if (playerSelection == 'SCISSORS' && computerSelection ==
                 'ROCK') {
                 computerScore++;
-                winner.innerText = "You lose this round! Rock beats Scissors";
+                winner.textContent = "You lose this round! Rock beats Scissors";
             } else if (playerSelection == 'SCISSORS' && computerSelection ==
                 'PAPER') {
                 playerScore++;
-                winner.innerText = "You win this round! Scissors beats Paper";
+                winner.textContent = "You win this round! Scissors beats Paper";
             }
             updateScore();
         }
 
+        function resetGame() {
+            playerScore = 0;
+            computerScore = 0;
+            score.textContent = `The score is ${playerScore} - ${computerScore}!`;
+            winner.textContent = 'First to 5 wins! Good Luck!';
+        }
+
+        const rps = ["ROCK", "PAPER", "SCISSORS"]; // array of choices for the computer
 
         const scoreboard = document.querySelector('#scoreboard')
         let playerScore = 0;
@@ -82,11 +90,16 @@
         score.textContent = `The score is ${playerScore} - ${computerScore}!`;
         scoreboard.appendChild(score);
 
-        const rps = ["ROCK", "PAPER", "SCISSORS"];
+        
 
         const choices = document.querySelectorAll('.choice');
-        choices.forEach(choice => choice.addEventListener('click', playRound));
+        choices.forEach(choice => choice.addEventListener('click', playRound)); // take players choice and call playRound function
+
         let winner = document.querySelector('.winner');
+
+        const reset = document.querySelector('#reset');
+        reset.addEventListener('click', resetGame);
+
     </script>
 </body>
 
