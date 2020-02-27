@@ -1,20 +1,61 @@
-button {
+body{
+    background-color: #232931;
+    color: #eee;
+}
+
+.choice {
+    background-color: #4ecca3 !important;
     display: inline-block;
-    height: 610px;
+    height: 500px;
     padding: 0;
     margin: 0;
     vertical-align: top;
-    width: 627px;
+    width: 500px;
+    cursor: pointer;
+    border: 1px solid #393e46;
+    border-radius: 4px;
+}
+
+.choice:hover{
+    transform: scale(1.1);
+    border-color: #0099ff;
+    box-shadow: 0 0 1rem #0099ff;
+}
+
+#container{
+    text-align: center;
+    margin-top: 50px;
+}
+
+#reset{
+    border: 1px solid #c9d6df;
+    border-radius: 4px;
+    background-color: #1e2022;
+    color: #eee;
+    font-size: 14px;
+    margin: 17px 4px;
+    padding: 0 16px;
+    line-height: 27px;
+    height: 36px;
+    min-width: 54px;
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
 }
 
 #ROCK{
     background: url(https://cs.wellesley.edu/~mhardy2/protected/hw8/images/rock.png);
+    background-size: contain;
+    margin-right: 10px;
 }
 
 #PAPER{
     background: url(https://cs.wellesley.edu/~mhardy2/protected/hw8/images/paper.png);
+    background-size: contain;
+    margin-right: 10px;
 }
 
 #SCISSORS{
     background: url(https://cs.wellesley.edu/~mhardy2/protected/hw8/images/scissors.png);
+    background-size: contain;
 }
